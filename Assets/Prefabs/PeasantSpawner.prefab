@@ -19,10 +19,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4387049730908792}
+  - component: {fileID: 114244369663148852}
+  - component: {fileID: 114852760676909316}
   m_Layer: 0
   m_Name: PeasantSpawner
   m_TagString: Respawn
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 419385456094870383, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -33,9 +35,44 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1093160784527680}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 0, z: 0}
+  m_LocalPosition: {x: 250, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114244369663148852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1093160784527680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7298349dbdab75f4d97e60b04a11a73a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InitialDelay: 0
+  Spawning: 1
+  MinSpawnTime: 0.3
+  MaxSpawnTime: 5
+  MinimumYClamp: 0
+  MaximumYClamp: 1.5
+--- !u!114 &114852760676909316
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1093160784527680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d19db472a82eb4689dd80dde4d2e69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameObjectsToPool:
+  - {fileID: 1953735579873182, guid: 6ce4c2c3078dbfe41881a8e22da725b8, type: 2}
+  - {fileID: 1133260514037732, guid: dd8b4eb43b2a3b54bac2acb468ed2cd7, type: 2}
+  - {fileID: 1133260514037732, guid: c4db2b44b4c998946b3a4d70d512d3e3, type: 2}
+  - {fileID: 1133260514037732, guid: 1b32ad2347d5d0147933aad330dab303, type: 2}
+  PoolSize: 0a0000000a0000000a0000000a000000
+  CanGrow: 1
