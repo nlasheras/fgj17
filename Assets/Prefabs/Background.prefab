@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a5b4e5681699641b55b16cc2da1b24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ParallaxSpeed: 1
+  ParallaxSpeed: 9
 --- !u!114 &114311138513707760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a5b4e5681699641b55b16cc2da1b24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ParallaxSpeed: 100
+  ParallaxSpeed: 3
 --- !u!212 &212027591089843860
 SpriteRenderer:
   m_ObjectHideFlags: 1

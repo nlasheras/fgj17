@@ -69,4 +69,14 @@ public class RoyalBehaviour : MonoBehaviour
 
         m_stamina = Mathf.Clamp(m_stamina + staminaPerSecond*Time.deltaTime - StaminaNeededForChange(change), 0, 100);	
     }
+
+    const float joyPerSecond = 5;
+    const float joyPerPixel = 0.02f;
+
+    void UpdateJoy()
+    {
+        float change = InputSystem.Instance.Change;
+
+        m_joy = Mathf.Clamp( m_joy + joyPerSecond * Time.deltaTime, 0, 100);
+    }
 }
