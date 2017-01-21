@@ -7,6 +7,7 @@ public class RoyalBehaviour : MonoBehaviour
     public static RoyalBehaviour Instance { get; private set; }
 
     public TextMesh m_debugText;
+    public float CarriageSpeed;
 
     public int Stamina
     {
@@ -16,12 +17,22 @@ public class RoyalBehaviour : MonoBehaviour
         }
     }
 
+    public int Joy
+    {
+        get
+        {
+            return (int)Mathf.Round(m_joy);
+        }
+    }
+
     float m_stamina;
+    float m_joy;
 
     void Start()
     {
         Instance = this;
-        m_stamina = 100;	
+        m_stamina = 100;
+        m_joy = 5;  	
 	}
 
     private void OnDestroy()

@@ -18,13 +18,13 @@ public class Parallax : MonoBehaviour {
         m_initialPosition = transform.position;
         m_copy = Instantiate(gameObject, new Vector3(transform.position.x + m_width, transform.position.y, transform.position.z), transform.rotation);
 
-        Destroy(m_copy.GetComponent<Parallax>());
+        Destroy( m_copy.GetComponent<Parallax>() );
     }
 
     // Update is called once per frame
     void Update ()
     {
-        m_movement = Vector2.left * ParallaxSpeed / 10 * Time.deltaTime;
+        m_movement = Vector2.left * ParallaxSpeed/10 * RoyalBehaviour.Instance.CarriageSpeed * Time.deltaTime;
 
         m_copy.transform.Translate( m_movement );
         transform.Translate( m_movement );

@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Peasant : MonoBehaviour {
 
     // Movement
-    private float Speed = 10;
     public Vector2 Direction = Vector2.left;
 
     // Happiness
@@ -20,20 +16,17 @@ public class Peasant : MonoBehaviour {
 
     private float lastTick;
 
-    private float m_initialSpeed;
     private Vector2 m_movement;
     private SpriteRenderer m_spriteRenderer;
     
     // Use this for initialization
     void Awake()
-    {
-        m_initialSpeed = Speed;
+    {     
         m_spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     protected virtual void OnEnable()
     {
-        Speed = m_initialSpeed;
         // Peasants entering the view are not pleased right away ;(
         lastTick = Time.time;
         m_spriteRenderer.flipX = false;
@@ -47,6 +40,7 @@ public class Peasant : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+
         Move();
         
         if (InputSystem.Instance.IsWaving && (Time.time > HappinessTickRate + lastTick))
@@ -70,8 +64,8 @@ public class Peasant : MonoBehaviour {
 
     public void Move()
     {
-        m_movement = Direction * ( Speed ) * Time.deltaTime;
-        transform.Translate(m_movement, Space.World);
+        m_movement = Direction * RoyalBehaviour.Instance.CarriageSpeed * Time.deltaTime;
+        transform.Translate( m_movement, Space.World );
 
         if (transform.position.x < 0)
         {
@@ -88,7 +82,7 @@ public class Peasant : MonoBehaviour {
     {
        if (other.CompareTag("PeasantKiller"))
         {
-            gameObject.SetActive(false);
+            gameObject.SetActive( false );
         }
     }
 }

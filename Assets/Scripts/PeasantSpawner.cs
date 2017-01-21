@@ -4,7 +4,7 @@ public class PeasantSpawner : MonoBehaviour {
 
     [Header("Spawning")]
     public float InitialDelay = 5f;
-    public bool Spawning = true;
+    public bool Spawning = false;
 
     [Space(10)]
     [Header("Spawn Timing")]
@@ -23,11 +23,7 @@ public class PeasantSpawner : MonoBehaviour {
         m_objectPooler = GetComponent<ObjectPooler>();
     }
 
-    void Start () {
-        Invoke("Spawn", InitialDelay);
-    }
-
-    public GameObject Spawn()
+    public void Spawn()
     {
         Vector3 spawnPosition = transform.position;
         float spawnY = Random.Range(MinimumYClamp, MaximumYClamp);
@@ -38,7 +34,7 @@ public class PeasantSpawner : MonoBehaviour {
 
         if (nextGameObject == null)
         {
-            return null;
+            return;
         }
 
         nextGameObject.transform.position = spawnPosition;
@@ -47,8 +43,15 @@ public class PeasantSpawner : MonoBehaviour {
       
         // Invoke this function again after a random time
         Invoke("Spawn", Random.Range( MinSpawnTime, MaxSpawnTime ));
-
-        return (nextGameObject);
     }
 
+    void OnEnable()
+    {
+        Invoke( "Spawn", InitialDelay);
+    }
+
+    void OnDisable()
+    {
+        CancelInvoke();
+    }
 }
