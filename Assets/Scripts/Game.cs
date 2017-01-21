@@ -4,25 +4,31 @@ using UnityEngine;
 
 public class Game : MonoBehaviour
 {
+    public static Game Instance { get; private set; }
+
     private PeasantSpawner peasantSpawner;
 
-	void Start()
+    private void OnDestroy()
     {
+        Instance = null;
+    }
+
+    void Start()
+    {
+        Instance = this;
         peasantSpawner = GameObject.FindGameObjectWithTag("Respawn").GetComponent<PeasantSpawner>();
         peasantSpawner.enabled = false;
 
-        //TODO: Remove this call and HOOK the animation ending to it
-        StartGame();
 	}
 
-    void StartGame()
+    public void StartGame()
     {
         Debug.Log("STARTING GAME");
         RoyalBehaviour.Instance.CarriageSpeed = 15;
         peasantSpawner.enabled = true;
     }
 
-    void StopGame()
+    public void StopGame()
     {
         Debug.Log("STOPPING GAME");
         RoyalBehaviour.Instance.CarriageSpeed = 0;

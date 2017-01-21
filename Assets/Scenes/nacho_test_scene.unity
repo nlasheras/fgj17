@@ -329,6 +329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_debugText: {fileID: 216899025}
+  CarriageSpeed: 0
 --- !u!1 &1335104831
 GameObject:
   m_ObjectHideFlags: 0
