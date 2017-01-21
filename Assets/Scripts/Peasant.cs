@@ -36,6 +36,7 @@ public class Peasant : MonoBehaviour {
         Speed = m_initialSpeed;
         // Peasants entering the view are not pleased right away ;(
         lastTick = Time.time;
+        m_spriteRenderer.flipX = false;
         SetToNeutral();
     }
 
