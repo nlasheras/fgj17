@@ -6,7 +6,8 @@ public class RoyalBehaviour : MonoBehaviour
 {
     public static RoyalBehaviour Instance { get; private set; }
 
-    public TextMesh m_debugText;
+    public TextMesh m_debugTextSTA;
+    public TextMesh m_debugTextJOY;
     public float CarriageSpeed;
 
     public int Stamina
@@ -32,7 +33,7 @@ public class RoyalBehaviour : MonoBehaviour
     {
         Instance = this;
         m_stamina = 100;
-        m_joy = 5;  	
+        m_joy = 20;  	
 	}
 
     private void OnDestroy()
@@ -43,12 +44,18 @@ public class RoyalBehaviour : MonoBehaviour
     void Update()
     {
         UpdateStamina();
+        DecrementJoy();
         
-        if (m_debugText)
+        if (m_debugTextSTA)
         {
-            m_debugText.text = string.Format("STAMINA: {0:f1}", Stamina);
+            m_debugTextSTA.text = string.Format("STAMINA: {0:f1}", Stamina);
         }
-	}
+
+        if (m_debugTextJOY)
+        {
+            m_debugTextJOY.text = string.Format("JOY: {0:f1}", Joy);
+        }
+    }
 
     const float staminaPerSecond = 5;
     const float staminaPerPixel = 0.02f;
@@ -70,13 +77,19 @@ public class RoyalBehaviour : MonoBehaviour
         m_stamina = Mathf.Clamp(m_stamina + staminaPerSecond*Time.deltaTime - StaminaNeededForChange(change), 0, 100);	
     }
 
-    const float joyPerSecond = 5;
+    const float joyPerSecond = 2;
+    const float maxJoy = 100f;
+
+    // Needed for the UI bar?
     const float joyPerPixel = 0.02f;
 
-    void UpdateJoy()
+    public void AddJoy( float amountOfJoy )
     {
-        float change = InputSystem.Instance.Change;
+        m_joy = Mathf.Clamp( m_joy + amountOfJoy, 0, maxJoy);
+    }
 
-        m_joy = Mathf.Clamp( m_joy + joyPerSecond * Time.deltaTime, 0, 100);
+    void DecrementJoy()
+    {
+        m_joy = Mathf.Clamp( m_joy - joyPerSecond * Time.deltaTime , 0, maxJoy);
     }
 }

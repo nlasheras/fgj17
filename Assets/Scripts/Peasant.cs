@@ -57,7 +57,7 @@ public class Peasant : MonoBehaviour {
         // Happiness amount added popup text
         Vector3 textPosition = new Vector3( transform.position.x, transform.position.y + 1 );
         Instantiate( HappinessText, textPosition, transform.rotation );
-
+        RoyalBehaviour.Instance.AddJoy( HappinessAmount );
         Invoke("SetToNeutral", HappinessTickRate * 0.5f);
         lastTick = Time.time;       
     }
