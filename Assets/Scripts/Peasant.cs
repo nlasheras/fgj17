@@ -85,7 +85,7 @@ public class Peasant : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D other)
     {
-       if (other.CompareTag("GameController"))
+       if (other.CompareTag("PeasantKiller"))
         {
             gameObject.SetActive(false);
         }
