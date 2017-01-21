@@ -6,7 +6,7 @@ using UnityEngine;
 public class Peasant : MonoBehaviour {
 
     // Movement
-    private float Speed = 15;
+    private float Speed = 10;
     public Vector2 Direction = Vector2.left;
 
     // Happiness
