@@ -80,6 +80,7 @@ public class InputSystem : MonoBehaviour {
                 IsWaving = true;
                 m_wavingTime = 0.5f;
                 m_halfWaveDone = 0;
+                //SoundManager.Instance.CrowdHappy();
             }
             else
             {
@@ -91,7 +92,10 @@ public class InputSystem : MonoBehaviour {
         {
             m_wavingTime -= Time.deltaTime;
             if (m_wavingTime <= 0)
+            {
                 IsWaving = false;
+                //SoundManager.Instance.CrowdUnhappy();
+            }
         }
     }
 }

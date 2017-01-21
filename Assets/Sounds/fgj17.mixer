@@ -25,7 +25,7 @@ AudioMixerController:
     - 421f348284320ec4e951551adb7fb73c
     name: View - Copy
   m_CurrentViewIndex: 0
-  m_TargetSnapshot: {fileID: 245923724026022758}
+  m_TargetSnapshot: {fileID: 24500003}
 --- !u!243 &24300001
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
