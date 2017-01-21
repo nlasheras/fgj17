@@ -49,11 +49,12 @@ public class InputSystem : MonoBehaviour {
 	}
 
     public bool IsWaving { get; private set; }
+    public float Change { get { return m_change; } }
  
-       
     const float minWave = 60;
 
     Vector3 m_prevPos;
+    float m_change;
 
     float m_accumulatedChange;
     float m_halfWaveDone;
@@ -63,12 +64,11 @@ public class InputSystem : MonoBehaviour {
     void DetectWave()
     {
         Vector3 mousePos = Input.mousePosition;
-        float change = mousePos.x - m_prevPos.x;
-        if (Mathf.Sign(change) != Mathf.Sign(m_accumulatedChange))
+        m_change = mousePos.x - m_prevPos.x;
+        if (Mathf.Sign(m_change) != Mathf.Sign(m_accumulatedChange))
             m_accumulatedChange = 0;
-        m_accumulatedChange += change;
+        m_accumulatedChange += m_change;
         m_prevPos = mousePos;
-
 
         if (Mathf.Abs(m_accumulatedChange) >= minWave)
         {
