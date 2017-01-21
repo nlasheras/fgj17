@@ -67,7 +67,10 @@ public class InputSystem : MonoBehaviour {
         m_change = mousePos.x - m_prevPos.x;
         if (Mathf.Sign(m_change) != Mathf.Sign(m_accumulatedChange))
             m_accumulatedChange = 0;
-        m_accumulatedChange += m_change;
+        if (RoyalBehaviour.Instance.HasEnoughStaminaForChange(m_change))
+            m_accumulatedChange += m_change;
+        else
+            m_accumulatedChange = 0;
         m_prevPos = mousePos;
 
         if (Mathf.Abs(m_accumulatedChange) >= minWave)
