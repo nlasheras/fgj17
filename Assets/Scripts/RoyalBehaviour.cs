@@ -86,10 +86,20 @@ public class RoyalBehaviour : MonoBehaviour
     public void AddJoy( float amountOfJoy )
     {
         m_joy = Mathf.Clamp( m_joy + amountOfJoy, 0, maxJoy);
+
+        if (m_joy == maxJoy)
+        {
+            Game.Instance.StopGame();
+        }
     }
 
     void DecrementJoy()
     {
         m_joy = Mathf.Clamp( m_joy - joyPerSecond * Time.deltaTime , 0, maxJoy);
+
+        if (m_joy <= 0)
+        {
+            Game.Instance.StopGame();
+        }
     }
 }
