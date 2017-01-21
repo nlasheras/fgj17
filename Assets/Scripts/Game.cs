@@ -6,8 +6,7 @@ public class Game : MonoBehaviour
 {
     public static Game Instance { get; private set; }
 
-    public PeasantSpawner peasantSpawner;
-
+    private PeasantSpawner peasantSpawner;
 
     private void OnDestroy()
     {
@@ -19,16 +18,20 @@ public class Game : MonoBehaviour
         Instance = this;
         peasantSpawner = GameObject.FindGameObjectWithTag("Respawn").GetComponent<PeasantSpawner>();
         peasantSpawner.enabled = false;
+
 	}
 
     public void StartGame()
     {
-        peasantSpawner.enabled = true;
+        Debug.Log("STARTING GAME");
         RoyalBehaviour.Instance.CarriageSpeed = 15;
+        peasantSpawner.enabled = true;
     }
 
-	void Update()
+    public void StopGame()
     {
-		
-	}
+        Debug.Log("STOPPING GAME");
+        RoyalBehaviour.Instance.CarriageSpeed = 0;
+        peasantSpawner.enabled = false;
+    }
 }
