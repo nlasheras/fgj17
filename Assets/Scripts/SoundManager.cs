@@ -10,7 +10,7 @@ public enum SoundEffect
 public class SoundManager : MonoBehaviour 
 {
     private static SoundManager s_instance;
-    public AudioSource m_audioSource;
+    public AudioSource m_effectsSource;
     public AudioMixer m_mixer;
 
     public AudioClip m_crowd;
@@ -29,10 +29,12 @@ public class SoundManager : MonoBehaviour
         Debug.Assert(s_instance == null);
         s_instance = this;
 
-        if (m_audioSource == null)
-           m_audioSource = GetComponent<AudioSource>();
+        if (m_effectsSource == null)
+           m_effectsSource = GetComponent<AudioSource>();
 
-        PlaySound(SoundEffect.Crowd);
+        m_effectsSource.clip = m_crowd;
+        m_effectsSource.loop = true;
+        m_effectsSource.Play();
 	}
 
     void OnDisable()
@@ -42,7 +44,7 @@ public class SoundManager : MonoBehaviour
 	
 	public void PlaySound(SoundEffect fx)
 	{
-        m_audioSource.PlayOneShot(ChooseClip(fx));
+        m_effectsSource.PlayOneShot(ChooseClip(fx));
 	}
 
     public void CrowdHappy()
