@@ -18,7 +18,7 @@ public class ObjectPooler : MonoBehaviour {
         FillObjectPool();
     }
 
-    protected  void FillObjectPool()
+    private void FillObjectPool()
     {
         // we create a container that will hold all the instances we create
         m_waitingPool = new GameObject("[ObjectPooler] " + name);
@@ -31,7 +31,7 @@ public class ObjectPooler : MonoBehaviour {
         }
     }
 
-    internal GameObject GetPooledGameObject()
+    public GameObject GetPooledGameObject()
     {
         for ( int i = 0; i < m_pooledGameObjects.Count; i++ )
         {
@@ -49,7 +49,7 @@ public class ObjectPooler : MonoBehaviour {
         return null;
     }
 
-    protected virtual void AddObjectToThePool()
+    private void AddObjectToThePool()
     {
         if ( GameObjectToPool == null )
         {

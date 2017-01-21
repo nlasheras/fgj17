@@ -28,6 +28,8 @@ public class Peasant : MonoBehaviour {
     protected virtual void OnEnable()
     {
         Speed = m_initialSpeed;
+        // Peasants entering the view are not pleased right away ;(
+        lastTick = Time.time;
     }
 
     // Update is called once per frame

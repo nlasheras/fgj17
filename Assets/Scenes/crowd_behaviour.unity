@@ -238,6 +238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 294603504}
   - component: {fileID: 294603505}
+  - component: {fileID: 294603506}
   m_Layer: 0
   m_Name: bg2
   m_TagString: Untagged
@@ -293,6 +294,18 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &294603506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 294603503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a5b4e5681699641b55b16cc2da1b24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParallaxSpeed: 1
 --- !u!1 &403809919
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,6 +315,7 @@ GameObject:
   m_Component:
   - component: {fileID: 403809920}
   - component: {fileID: 403809921}
+  - component: {fileID: 403809922}
   m_Layer: 0
   m_Name: bg1
   m_TagString: Untagged
@@ -357,6 +371,18 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &403809922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 403809919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a5b4e5681699641b55b16cc2da1b24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParallaxSpeed: 0.5
 --- !u!1 &724168418
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,6 +392,7 @@ GameObject:
   m_Component:
   - component: {fileID: 724168419}
   - component: {fileID: 724168420}
+  - component: {fileID: 724168421}
   m_Layer: 0
   m_Name: bg4
   m_TagString: Untagged
@@ -415,12 +442,24 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -245471303
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 721e61d74875081419429a9f6e2c5e98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &724168421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 724168418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a5b4e5681699641b55b16cc2da1b24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParallaxSpeed: 3
 --- !u!1 &852500772
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,6 +537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 881432334}
   - component: {fileID: 881432335}
+  - component: {fileID: 881432336}
   m_Layer: 0
   m_Name: bg3
   m_TagString: Untagged
@@ -553,6 +593,18 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!114 &881432336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 881432333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a5b4e5681699641b55b16cc2da1b24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParallaxSpeed: 2
 --- !u!1 &1290293360
 GameObject:
   m_ObjectHideFlags: 0
@@ -664,8 +716,8 @@ MonoBehaviour:
   Spawning: 1
   MinSpawnTime: 0.2
   MaxSpawnTime: 5
-  MinimumYClamp: -3
-  MaximumYClamp: 1
+  MinimumYClamp: 0
+  MaximumYClamp: 0.5
 --- !u!114 &1910758485
 MonoBehaviour:
   m_ObjectHideFlags: 0

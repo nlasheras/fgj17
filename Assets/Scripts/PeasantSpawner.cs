@@ -36,7 +36,6 @@ public class PeasantSpawner : MonoBehaviour {
 
         spawnPosition.y += spawnY;
 
-
         GameObject nextGameObject = m_objectPooler.GetPooledGameObject();
 
         if (nextGameObject == null)
