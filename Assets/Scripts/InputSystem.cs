@@ -64,13 +64,16 @@ public class InputSystem : MonoBehaviour {
     void DetectWave()
     {
         Vector3 mousePos = Input.mousePosition;
-        m_change = mousePos.x - m_prevPos.x;
-        if (Mathf.Sign(m_change) != Mathf.Sign(m_accumulatedChange))
-            m_accumulatedChange = 0;
-        if (RoyalBehaviour.Instance.HasEnoughStaminaForChange(m_change))
-            m_accumulatedChange += m_change;
-        else
-            m_accumulatedChange = 0;
+        if (Game.Instance.IsRunning)
+        {
+            m_change = mousePos.x - m_prevPos.x;
+            if (Mathf.Sign(m_change) != Mathf.Sign(m_accumulatedChange))
+                m_accumulatedChange = 0;
+            if (RoyalBehaviour.Instance.HasEnoughStaminaForChange(m_change))
+                m_accumulatedChange += m_change;
+            else
+                m_accumulatedChange = 0;
+        }
         m_prevPos = mousePos;
 
         if (Mathf.Abs(m_accumulatedChange) >= minWave)

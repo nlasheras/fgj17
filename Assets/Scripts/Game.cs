@@ -21,11 +21,14 @@ public class Game : MonoBehaviour
 
 	}
 
+    public bool IsRunning { get; private set; }
+     
     public void StartGame()
     {
         Debug.Log("STARTING GAME");
         RoyalBehaviour.Instance.CarriageSpeed = 15;
         peasantSpawner.enabled = true;
+        IsRunning = true;
     }
 
     public void StopGame()
@@ -33,5 +36,6 @@ public class Game : MonoBehaviour
         Debug.Log("STOPPING GAME");
         RoyalBehaviour.Instance.CarriageSpeed = 0;
         peasantSpawner.enabled = false;
+        IsRunning = false;
     }
 }

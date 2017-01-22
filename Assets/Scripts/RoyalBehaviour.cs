@@ -43,8 +43,11 @@ public class RoyalBehaviour : MonoBehaviour
 
     void Update()
     {
-        UpdateStamina();
-        DecrementJoy();
+        if (Game.Instance.IsRunning)
+        {
+            UpdateStamina();
+            DecrementJoy();
+        }
         
         if (m_debugTextSTA)
         {
@@ -77,7 +80,7 @@ public class RoyalBehaviour : MonoBehaviour
         m_stamina = Mathf.Clamp(m_stamina + staminaPerSecond*Time.deltaTime - StaminaNeededForChange(change), 0, 100);	
     }
 
-    const float joyPerSecond = 2;
+    const float joyPerSecond = 1;
     const float maxJoy = 100f;
 
     // Needed for the UI bar?

@@ -539,7 +539,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_debugTextSTA: {fileID: 535622575}
   m_debugTextJOY: {fileID: 461727392}
-  CarriageSpeed: 15
+  CarriageSpeed: 0
 --- !u!4 &1228333835
 Transform:
   m_ObjectHideFlags: 0
