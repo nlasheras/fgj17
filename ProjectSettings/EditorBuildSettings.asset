@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/main_jeppe.unity
+  - enabled: 1
+    path: Assets/Scenes/Start_Screen.unity
+  - enabled: 1
+    path: Assets/Scenes/End_Screen.unity

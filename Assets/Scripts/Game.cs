@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class Game : MonoBehaviour
         peasantSpawner = GameObject.FindGameObjectWithTag("Respawn").GetComponent<PeasantSpawner>();
         peasantSpawner.enabled = false;
 
+        //SceneManager.LoadScene("Start_Screen", LoadSceneMode.Additive);
 	}
 
     public bool IsRunning { get; private set; }
@@ -50,5 +52,7 @@ public class Game : MonoBehaviour
         RoyalBehaviour.Instance.CarriageSpeed = 0;
         peasantSpawner.enabled = false;
         IsRunning = false;
+
+        SceneManager.LoadScene("End_Screen", LoadSceneMode.Additive);
     }
 }
