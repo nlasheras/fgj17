@@ -14,6 +14,10 @@ public class RoyalStartGameBehaviour : StateMachineBehaviour {
             Game.Instance.StartGame();
             m_gameStarted = true;
         }
+        if (stateInfo.IsName("Cough"))
+        {
+            SoundManager.Instance.PlaySound(SoundEffect.Cough, 1.0f);
+        }
 	}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

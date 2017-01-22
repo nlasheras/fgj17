@@ -4,16 +4,18 @@ using System.Collections;
 
 public enum SoundEffect
 {
-    Crowd
+    Cough
 }
 
 public class SoundManager : MonoBehaviour 
 {
     private static SoundManager s_instance;
     public AudioSource m_effectsSource;
+    public AudioSource m_crowdSource;
     public AudioMixer m_mixer;
 
     public AudioClip m_crowd;
+    public AudioClip m_cough;
 
     public static SoundManager Instance
     {
@@ -32,9 +34,9 @@ public class SoundManager : MonoBehaviour
         if (m_effectsSource == null)
            m_effectsSource = GetComponent<AudioSource>();
 
-        m_effectsSource.clip = m_crowd;
-        m_effectsSource.loop = true;
-        m_effectsSource.Play();
+        m_crowdSource.clip = m_crowd;
+        m_crowdSource.loop = true;
+        m_crowdSource.Play();
 	}
 
     void OnDisable()
@@ -42,9 +44,11 @@ public class SoundManager : MonoBehaviour
         s_instance = null;
     }
 	
-	public void PlaySound(SoundEffect fx)
+	public void PlaySound(SoundEffect fx, float delay = 0.0f)
 	{
-        m_effectsSource.PlayOneShot(ChooseClip(fx));
+        m_effectsSource.clip = ChooseClip(fx);
+        m_effectsSource.loop = false;
+        m_effectsSource.PlayDelayed(delay);
 	}
 
     public void CrowdHappy()
@@ -61,7 +65,7 @@ public class SoundManager : MonoBehaviour
     {
         switch(fx)
         {
-            case SoundEffect.Crowd: return m_crowd;
+            case SoundEffect.Cough: return m_cough;
         }
         return null;
     }
