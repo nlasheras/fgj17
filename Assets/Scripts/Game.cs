@@ -8,7 +8,8 @@ public class Game : MonoBehaviour
     public static Game Instance { get; private set; }
 
     private PeasantSpawner peasantSpawner;
-
+    private GameObject royalGO;
+    
     private void OnDestroy()
     {
         Instance = null;
@@ -20,8 +21,16 @@ public class Game : MonoBehaviour
         peasantSpawner = GameObject.FindGameObjectWithTag("Respawn").GetComponent<PeasantSpawner>();
         peasantSpawner.enabled = false;
 
-        //SceneManager.LoadScene("Start_Screen", LoadSceneMode.Additive);
+        royalGO = GameObject.Find("Royal");
+        royalGO.SetActive(false);
+        SceneManager.LoadScene("Start_Screen", LoadSceneMode.Additive);
 	}
+
+    public void onStartGameClicked()
+    {
+        SceneManager.UnloadSceneAsync("Start_Screen");
+        royalGO.SetActive(true);
+    }
 
     public bool IsRunning { get; private set; }
 
@@ -44,6 +53,7 @@ public class Game : MonoBehaviour
         RoyalBehaviour.Instance.CarriageSpeed = 15;
         peasantSpawner.enabled = true;
         IsRunning = true;
+        Cursor.visible = false;
     }
 
     public void StopGame()
@@ -52,6 +62,7 @@ public class Game : MonoBehaviour
         RoyalBehaviour.Instance.CarriageSpeed = 0;
         peasantSpawner.enabled = false;
         IsRunning = false;
+        Cursor.visible = true;
 
         SceneManager.LoadScene("End_Screen", LoadSceneMode.Additive);
     }

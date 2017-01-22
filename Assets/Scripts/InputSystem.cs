@@ -15,7 +15,6 @@ public class InputSystem : MonoBehaviour {
     {
         InputSystem.Instance = this;
 
-        Cursor.visible = false;
         m_camera = Camera.main;
         m_prevPos = Input.mousePosition;
         m_halfWaveDone = 0;
