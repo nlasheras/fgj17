@@ -14,23 +14,23 @@ PlayerSettings:
   productName: The Last Journey
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
-  m_SplashScreenBackgroundColor: {r: 1, g: 0.83772814, b: 0.41176468, a: 1}
+  m_SplashScreenBackgroundColor: {r: 1, g: 0.7176471, b: 0.49411768, a: 1}
   m_ShowUnitySplashScreen: 1
   m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 1
-  m_SplashScreenAnimation: 1
+  m_SplashScreenAnimation: 0
   m_SplashScreenLogoStyle: 0
   m_SplashScreenDrawMode: 0
-  m_SplashScreenBackgroundAnimationZoom: 1
-  m_SplashScreenLogoAnimationZoom: 1
+  m_SplashScreenBackgroundAnimationZoom: 0.938
+  m_SplashScreenLogoAnimationZoom: 0.554
   m_SplashScreenBackgroundLandscapeAspect: 1
   m_SplashScreenBackgroundPortraitAspect: 1
   m_SplashScreenBackgroundLandscapeUvs:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
+    x: 0.009765625
+    y: 0.7265625
+    width: 0.46875
+    height: 0.26367188
   m_SplashScreenBackgroundPortraitUvs:
     serializedVersion: 2
     x: 0
