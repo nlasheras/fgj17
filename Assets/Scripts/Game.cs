@@ -9,7 +9,9 @@ public class Game : MonoBehaviour
 
     private PeasantSpawner peasantSpawner;
     private GameObject royalGO;
-    
+
+    private GameObject barCanvas;
+
     private void OnDestroy()
     {
         Instance = null;
@@ -24,6 +26,9 @@ public class Game : MonoBehaviour
         royalGO = GameObject.Find("Royal");
         royalGO.SetActive(false);
         SceneManager.LoadScene("Start_Screen", LoadSceneMode.Additive);
+
+        barCanvas = GameObject.Find("BarCanvas");
+        barCanvas.SetActive(false);
 	}
 
     public void onStartGameClicked()
@@ -54,6 +59,7 @@ public class Game : MonoBehaviour
         peasantSpawner.enabled = true;
         IsRunning = true;
         Cursor.visible = false;
+        barCanvas.SetActive(true);
     }
 
     public void StopGame()
@@ -63,7 +69,7 @@ public class Game : MonoBehaviour
         peasantSpawner.enabled = false;
         IsRunning = false;
         Cursor.visible = true;
-
+        barCanvas.SetActive(false);
         SceneManager.LoadScene("End_Screen", LoadSceneMode.Additive);
     }
 }

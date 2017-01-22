@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RoyalBehaviour : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class RoyalBehaviour : MonoBehaviour
 
     public TextMesh m_debugTextSTA;
     public TextMesh m_debugTextJOY;
+    public Slider m_staminaBar;
+    public Slider m_joyBar;
+
     public float CarriageSpeed;
 
     public int Stamina
@@ -53,10 +57,17 @@ public class RoyalBehaviour : MonoBehaviour
         {
             m_debugTextSTA.text = string.Format("STAMINA: {0:f1}", Stamina);
         }
-
+        if (m_staminaBar)
+        {
+            m_staminaBar.value = Stamina / 100.0f;
+        }
         if (m_debugTextJOY)
         {
             m_debugTextJOY.text = string.Format("JOY: {0:f1}", Joy);
+        }
+        if (m_joyBar)
+        {
+            m_joyBar.value = Joy / 100.0f;
         }
     }
 
