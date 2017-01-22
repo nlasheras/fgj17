@@ -60,6 +60,7 @@ public class Game : MonoBehaviour
         IsRunning = true;
         Cursor.visible = false;
         barCanvas.SetActive(true);
+        SoundManager.Instance.StartCarriage();
     }
 
     public void StopGame()
@@ -71,5 +72,6 @@ public class Game : MonoBehaviour
         Cursor.visible = true;
         barCanvas.SetActive(false);
         SceneManager.LoadScene("End_Screen", LoadSceneMode.Additive);
+        SoundManager.Instance.StopCarriage();
     }
 }

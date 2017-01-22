@@ -12,10 +12,12 @@ public class SoundManager : MonoBehaviour
     private static SoundManager s_instance;
     public AudioSource m_effectsSource;
     public AudioSource m_crowdSource;
+    public AudioSource m_horseSource;
     public AudioMixer m_mixer;
 
     public AudioClip m_crowd;
     public AudioClip m_cough;
+    public AudioClip m_horse;
 
     public static SoundManager Instance
     {
@@ -37,7 +39,7 @@ public class SoundManager : MonoBehaviour
         m_crowdSource.clip = m_crowd;
         m_crowdSource.loop = true;
         m_crowdSource.Play();
-	}
+    }
 
     void OnDisable()
     {
@@ -50,6 +52,18 @@ public class SoundManager : MonoBehaviour
         m_effectsSource.loop = false;
         m_effectsSource.PlayDelayed(delay);
 	}
+
+    public void StartCarriage()
+    {
+        m_horseSource.clip = m_horse;
+        m_horseSource.loop = true;
+        m_horseSource.Play();
+    }
+
+    public void StopCarriage()
+    {
+        m_horseSource.Stop();
+    }
 
     public void CrowdHappy()
     {

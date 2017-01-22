@@ -10,8 +10,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: Quu
-  productName: fgj17
+  companyName: "Team Ma\xF1ana"
+  productName: The Last Journey
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 1, g: 0.83772814, b: 0.41176468, a: 1}
