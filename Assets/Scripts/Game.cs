@@ -22,6 +22,19 @@ public class Game : MonoBehaviour
 	}
 
     public bool IsRunning { get; private set; }
+
+    public bool IsFinished
+    {
+        get
+        {
+            if (!IsRunning)
+            {
+                int joy = RoyalBehaviour.Instance.Joy;
+                return joy <= 0 || joy >= 100;
+            }
+            return false;
+        }
+    }
      
     public void StartGame()
     {

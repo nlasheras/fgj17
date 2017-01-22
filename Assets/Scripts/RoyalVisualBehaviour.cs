@@ -5,6 +5,7 @@ using UnityEngine;
 public class RoyalVisualBehaviour : MonoBehaviour
 {
     public Animator m_queen;
+    public Animator m_royal;
 
 	void Start()
     {
@@ -14,5 +15,9 @@ public class RoyalVisualBehaviour : MonoBehaviour
 	void Update()
     {
         m_queen.SetBool("Waving", InputSystem.Instance.IsWaving);	
+        if (Game.Instance.IsFinished)
+        {
+            m_royal.SetTrigger("End");
+        }
 	}
 }
